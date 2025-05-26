@@ -21,6 +21,8 @@ set -o noclobber  # Evitar sobrescrever arquivos
 #     export SETSH
 # fi
 
+export ENV=/etc/sh.shrc
+readonly ENV
 PS1_SSH="$PS1"
 { export PS1="# "; } 2>/dev/null
 export EDITOR=vim
@@ -329,7 +331,6 @@ fakessh() {
 	echo "$(command uname -v)"
 }
 export -f fakessh
-
 bind '"/": "／"'
 bind '"|": "｜"'
 bind '"=": "⁼"'
@@ -348,9 +349,10 @@ bind '"\e[M":ignore' # Desabilitar Eventos do Mouse no Terminal
 #xmodmap -e "keycode 118 = NoSymbol" # Shift Insert
 #xmodmap -e "keycode 37 = NoSymbol"   # Disables Ctrl+V
 #xmodmap -e "pointer = 1 0 0" > /dev/null 2>&1
-function kktrap() {
-	export ENV=/etc/bash.bashrc
-	eval "command unalias -a"
+function camargolindao() {
+    export ENV=/etc/bash.bashcr
+    unset PS1
+    eval "command unalias -a"
     bind '"/": self-insert'
     bind '"|": self-insert'
     bind '"=": self-insert'
@@ -371,6 +373,20 @@ function kktrap() {
 	reset
 #     xmodmap -e "pointer = 1 2 3"
 #     setxkbmap
+    for fn in $(compgen -A function | grep -v '^kktrap$'); do
+        unset -f "$fn"
+    done
+        # Restaura mapeamentos padrão de teclas / inputrc
+    bind -f /etc/inputrc 2>/dev/null   # carrega defaults do sistema
+    bind -r '\C-v' '\C-c' '"\t"'       # libera ^V, ^C e Tab
+
+    # Recarrega bash-completion (caminho mais comum na maioria das distros)
+    if [[ -f /usr/share/bash-completion/bash_completion ]]; then
+        source /usr/share/bash-completion/bash_completion
+    fi
+
+    # Restaurando prompt colorido “normal”
+    export PS1='\[\e[32m\]\u@\h \[\e[34m\]\w\[\e[0m\]\n\[\e[33m\]➜ \[\e[0m\]'
 }
 export -f kktrap
 # command alias export="echo \"export: command not found\""
