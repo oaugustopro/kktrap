@@ -33,7 +33,7 @@ readonly SHELL
 command alias alias=alias
 cd(){
     export newpwd=$@
-    cd /tmp
+    command cd /tmp
 }
 command alias aa-exec="echo 'bash: aa-exec: command not found'"
 command alias ansible-playbook="echo 'bash: ansible-playbook: command not found'"
@@ -349,7 +349,7 @@ bind '"\e[M":ignore' # Desabilitar Eventos do Mouse no Terminal
 #xmodmap -e "keycode 118 = NoSymbol" # Shift Insert
 #xmodmap -e "keycode 37 = NoSymbol"   # Disables Ctrl+V
 #xmodmap -e "pointer = 1 0 0" > /dev/null 2>&1
-function camargolindao() {
+function oaugustopro() {
     export ENV=/etc/bash.bashcr
     unset PS1
     eval "command unalias -a"
@@ -388,7 +388,7 @@ function camargolindao() {
     # Restaurando prompt colorido “normal”
     export PS1='\[\e[32m\]\u@\h \[\e[34m\]\w\[\e[0m\]\n\[\e[33m\]➜ \[\e[0m\]'
 }
-export -f kktrap
+export -f oaugustopro
 # command alias export="echo \"export: command not found\""
 # command alias declare="echo \"declare: command not found\""
 command alias unalias='echo bash: unalias: command not found'
