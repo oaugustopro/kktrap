@@ -46,12 +46,12 @@ In short, kktrap is a clever, low-overhead way to turn a shell into a deception 
 ## Install  kktrap
 ```
 sudo su
-git clone https://github.com/oaugustopro/kktrap.git
-sudo cp kktrap/sh.shrc /etc/
-sudo sed -i '1iexport ENV=/etc/sh.shrc\nreadonly ENV' /etc/profile && echo 'source /etc/sh.shrc' | sudo tee -a /etc/bash.bashrc
-sudo sed -i 's/^\s*AcceptEnv/#&/' /etc/ssh/sshd_config && sudo systemctl restart sshd
-ln -sf ~/.bash_history /dev/null
-rm -rf kktrap
-dirs="/etc"
+git clone https://github.com/oaugustopro/kktrap.git && \
+sudo cp kktrap/sh.shrc /etc/ && \
+sudo sed -i '1iexport ENV=/etc/sh.shrc\nreadonly ENV' /etc/profile && echo 'source /etc/sh.shrc' | sudo tee -a /etc/bash.bashrc && \
+sudo sed -i 's/^\s*AcceptEnv/#&/' /etc/ssh/sshd_config && sudo systemctl restart sshd && \
+ln -sf  /dev/null ~/.bash_history && \
+rm -rf kktrap && \
+dirs="/etc" && \
 find $dirs -type f -exec touch {} \;
 ``
